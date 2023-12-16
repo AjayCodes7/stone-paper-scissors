@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stone Paper Sissor</title>
+    <link rel="stylesheet" href="CSS\stone-paper-sissor.css">
+    <script src="js\stone-paper-sissor.js"></script>
+</head>
+
+
+<body>
+    <p class = "title">Play Stone Paper Sissor!</p>
+    <button class = "move-button" onclick="playGame('Stone');">
+        <img class = "move-icon" src="images\stone-emoji.png" alt="">
+    </button>
+    <button class = "move-button" onclick="playGame('Paper');">
+        <img class = "move-icon" src="images\Paper-emoji.png" alt="">
+    </button>
+    <button class = "move-button" onclick="playGame('Sissor');">
+        <img class = "move-icon" src="images\Sissor-emoji.png" alt="">
+    </button>
+
+    <p class = "js-result result"></p>
+    <p class = "js-choice"></p>
+    <p  class = "js-score"></p>
+
+    <button class = "reset-button" 
+    onclick="
+        scores.won = 0;
+        scores.tie = 0;
+        scores.lose = 0;
+        localStorage.removeItem('score');
+        updateScoreBoard();
+        resetScore();"
+        >Reset Score
+    </button>
+</body>
+</html>
