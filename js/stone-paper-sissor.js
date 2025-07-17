@@ -64,21 +64,31 @@ function playGame(playerMove){
     // alert(`You picked ${playerMove}. Computer picked ${pcMove}. ${result} `);
     updateScoreBoard();
     document.querySelector('.js-result').innerHTML = result;
-    document.querySelector('.js-choice').innerHTML = `        You
+    document.querySelector('.js-choice').innerHTML = `        <span>     You</span>
     <img class = "move-icon" src="images\\${playerMove}-emoji.png" alt="">
     <img class = "move-icon" src="images\\${pcMove}-emoji.png" alt="">
-    Computer`;
+    <span>Computer</span>`;
 }
 
 function updateScoreBoard(){
-    document.querySelector('.js-score').innerHTML = `won : ${scores.won}  tie : ${scores.tie} lose : ${scores.lose} `;
+    if (!(scores.won==0 && scores.tie ==0 && scores.lose==0)){
+        document.querySelector('.js-choice').innerHTML = "<span class = 'preview'>Pick One to Play On</span>"
+        document.querySelector('.js-score').innerHTML = `won : ${scores.won}  tie : ${scores.tie} lose : ${scores.lose} `;
+        document.querySelector('.reset-button').hidden = false;
+    } else{
+        document.querySelector('.reset-button').hidden = true;
+        document.querySelector('.choice-container').style.width = "80%";
+        document.querySelector('.js-choice').innerHTML = "<span class = 'preview'>🎮 Ready to Battle? <br> <br>Choose your weapon 🏹 Stone, Paper, or Scissors</span>"
+    }
 }
 
 function resetScore(){
-
     document.querySelector('.js-result').innerHTML = '';
     document.querySelector('.js-choice').innerHTML = '';
     document.querySelector('.js-score').innerHTML = '';
+    document.querySelector('.reset-button').hidden = true;
+        document.querySelector('.choice-container').style.width = "80%";
+        document.querySelector('.js-choice').innerHTML = "<span class = 'preview'>🎮 Ready to Battle? <br> <br>Choose your weapon 🏹 Stone, Paper, or Scissors</span>"
 }
 
 function subscribe(){

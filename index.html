@@ -3,29 +3,40 @@
 <head>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stone Paper Sissor</title>
+    <title>Stone Paper Sissors</title>
     <link rel="stylesheet" href="CSS\stone-paper-sissor.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <script src="js\stone-paper-sissor.js"></script>
 </head>
 
 
 <body>
     <p class = "title">Play Stone Paper Sissor!</p>
-    <button class = "move-button" onclick="playGame('Stone');">
-        <img class = "move-icon" src="images\Stone-emoji.png" alt="">
-    </button>
-    <button class = "move-button" onclick="playGame('Paper');">
-        <img class = "move-icon" src="images\Paper-emoji.png" alt="">
-    </button>
-    <button class = "move-button" onclick="playGame('Sissor');">
-        <img class = "move-icon" src="images\Sissor-emoji.png" alt="">
-    </button>
 
-    <p class = "js-result result"></p>
-    <p class = "js-choice"></p>
-    <p  class = "js-score"></p>
+    <div class = "container">
+        <button class = "move-button" onclick="playGame('Stone');">
+            <img class = "move-icon" src="images\Stone-emoji.png" alt="">
+        </button>
+        <button class = "move-button" onclick="playGame('Paper');">
+            <img class = "move-icon" src="images\Paper-emoji.png" alt="">
+        </button>
+        <button class = "move-button" onclick="playGame('Sissor');">
+            <img class = "move-icon" src="images\Sissor-emoji.png" alt="">
+        </button>
+    </div>
 
-    <button class = "reset-button" 
+    <div class="result-container">
+        <p class = "js-result result"></p>
+        <div class="choice-container">
+            <p class = "js-choice"></p>
+        </div>
+        
+        <p class = "js-score"></p>
+
+    <button class = "reset-button"
     onclick="
         scores.won = 0;
         scores.tie = 0;
@@ -35,5 +46,9 @@
         resetScore();"
         >Reset Score
     </button>
+    </div>
+    <script>
+        updateScoreBoard();
+    </script>
 </body>
 </html>
